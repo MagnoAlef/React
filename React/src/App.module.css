@@ -1,0 +1,6 @@
+.app{
+    background-color : #2c2c2d;
+    display:grid;
+    place-content:center;
+    text-align:center;
+}
