@@ -1,16 +1,18 @@
-import { StatusText } from "./componentes/StatusText"
-import { Subtitle } from "./componentes/SubTitle"
-import Title from "./componentes/Title"
-import styles from "./App.module.css"
+// import { StatusText } from "./componentes/StatusText"
+// import { Subtitle } from "./componentes/SubTitle"
+// import Title from "./componentes/Title"
+//import styles from "./App.module.css"
+import {Card} from './componentes/Card'
 
 
 export default function App() {
   return (
-<div className={styles.app}
+<div 
 >
-  <Title/>
+  {/* <Title/>
   <Subtitle/>
-  <StatusText/>
+  <StatusText/> */}
+  <Card/>
   
 </div>  
   )
