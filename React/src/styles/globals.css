@@ -13,6 +13,9 @@
   }
   
   h2 {
-    color: #f64348;
     font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-width: 1rem;
+    border-color: black;
   }

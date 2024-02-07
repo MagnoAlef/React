@@ -1,4 +1,0 @@
-Criando um Componente Card 
-Em um novo projeto React , crie um componente chamado Card . O componente devera ser criado em um arquivo separado do App.tsx
-e devera ser estilizado de acordo com a imagem abaixo. 
-Obs: voce pode usar a imagem e o texto que preferir , use sua criatividade.
