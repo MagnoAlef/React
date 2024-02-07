@@ -1,11 +1,12 @@
-import image from '../assets/star.jpg';
 
-export const Card = () => {
+import PropTypes from 'prop-types';
+
+export const Card = ({title , posterImage}) => {
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-      <img src={image} alt="star" style={{ maxWidth: '100%' }} />
+      <img src={posterImage} alt="star" style={{ maxWidth: '100%' }} />
       <div style={{ marginLeft: 10 , alignItems:'center'}}>
-        <h2>Poster Star Wars</h2>
+        <h2>{title}</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fugiat aliquam ea porro pariatur error ex.
         </p>
@@ -16,4 +17,9 @@ export const Card = () => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  posterImage: PropTypes.string.isRequired,
 };
