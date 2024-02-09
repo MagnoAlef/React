@@ -22,6 +22,7 @@ export const Profile = ({title , posterImage , description , phone, email , gitH
       <span>{title}</span>
       <button>Follow</button>
     </Title> */}
+    <button className={styles.followButton} onClick={() => alert('Você agora esta seguindo')}>Follow</button> {/*  // Evento em React onClick */}
     <h2>{title}</h2>
     <div>{description}</div>
     <div>{phone}</div>

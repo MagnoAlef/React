@@ -42,3 +42,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     bottom: .25rem;
   }
+
+  .followButton{
+    margin-left:1rem;
+    padding: .125rem .5 rem;;
+  }
