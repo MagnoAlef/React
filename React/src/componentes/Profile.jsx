@@ -9,25 +9,20 @@ Obs.: os estilos não precisam ficar exatamente iguais, esses apenas são os est
 
 
 import PropTypes from 'prop-types';
+import styles from '../styles/styles.module.css'
 
-export const Profile = ({title , posterImage , description , phone, email}) => {
+export const Profile = ({title , posterImage , description , phone, email , gitHubUrl}) => {
   return (
-  <div>
-     <button >
+  <div className={styles.container}>
+    <img className={styles.avatar}  src={posterImage} alt="imagens" />
+    <h2>{title}</h2>
+    <div>{description}</div>
+    <div>{phone}</div>
+    <div>{email}</div>
+    <div className={styles.links}>
+      <a href={gitHubUrl} target='_blank' rel="noreferrer">GitHub</a>
+    </div > 
         <link rel="stylesheet" href="https://github.com/MagnoAlef" />
-    </button>
-    <img style={{borderRadius:25 , width: 50 , height:50}} src={posterImage} alt="imagens" />
-    <br />
-    <span>{title}</span>
-    <br />
-    <span>{description}</span>
-    <br />
-    <span>{phone}</span>
-    <br />
-    <span>
-        {email}
-    </span>
-   
   </div>
   );
 };
@@ -38,4 +33,5 @@ Profile.propTypes = {
   description: PropTypes.string.isRequired,
   phone: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
+  gitHubUrl:PropTypes.string.isRequired,
 };
