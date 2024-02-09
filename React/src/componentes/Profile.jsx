@@ -10,11 +10,18 @@ Obs.: os estilos não precisam ficar exatamente iguais, esses apenas são os est
 
 import PropTypes from 'prop-types';
 import styles from '../styles/styles.module.css'
+//import Title from '../Title/Title';
 
 export const Profile = ({title , posterImage , description , phone, email , gitHubUrl}) => {
   return (
   <div className={styles.container}>
     <img className={styles.avatar}  src={posterImage} alt="imagens" />
+    {/* <Title title={title}/> */}
+    {/* //Exemplo de uso do children do componente Title 
+    <Title>
+      <span>{title}</span>
+      <button>Follow</button>
+    </Title> */}
     <h2>{title}</h2>
     <div>{description}</div>
     <div>{phone}</div>
