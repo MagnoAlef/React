@@ -10,9 +10,19 @@ Obs.: os estilos não precisam ficar exatamente iguais, esses apenas são os est
 
 import PropTypes from 'prop-types';
 import styles from '../styles/styles.module.css'
+import { useState } from 'react';
 //import Title from '../Title/Title';
 
 export const Profile = ({title , posterImage , description , phone, email , gitHubUrl}) => {
+
+  //Uso do State
+  // [valor,funcao que modificar o valor]
+const [followText, setFollowText] = useState('Follow')
+
+  function handleClick(){
+    alert('Você agora esta seguindo')
+    setFollowText('Following') 
+  }
   return (
   <div className={styles.container}>
     <img className={styles.avatar}  src={posterImage} alt="imagens" />
@@ -22,7 +32,7 @@ export const Profile = ({title , posterImage , description , phone, email , gitH
       <span>{title}</span>
       <button>Follow</button>
     </Title> */}
-    <button className={styles.followButton} onClick={() => alert('Você agora esta seguindo')}>Follow</button> {/*  // Evento em React onClick */}
+    <button className={styles.followButton} onClick={handleClick}>{followText}</button> {/*  // Evento em React onClick */}
     <h2>{title}</h2>
     <div>{description}</div>
     <div>{phone}</div>
