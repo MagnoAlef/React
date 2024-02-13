@@ -1,66 +1,53 @@
-//import useCounter from "../hooks/useCounter";
+import { useState } from "react"
+import Input from "./components/Input"
 
+function App() {
+  const [password, setPassword] = useState("")
+  const [customSize, setCustomSize] = useState(12)
+  const [showInput, setShowInput] = useState(false)
+  const [copyText, setCopyText] = useState("Copiar")
 
+  const passwordSize = showInput ? customSize : 8
 
-//Regra1 : Onde usar os hooks
-  //Sempre chama os hooks dentro de funções reacts
-//Rega2 : A ordem dos hooks   
-  // Não usar hooks dentro de condicionais
-import Input from './components/Input'
-import { useState } from "react";
-  function getRandom() {
-    return Math.random();
+  function generate() {
+    const characters = "'1234567890-=!@#$%¨&*()_+qwertyuiop[asdfghjklç~]zxcvbnm,.;/QWERTYUIOP{ASDFGHJKLÇ^}ZXCVBNM<>:?"
+    let newPassword = ""
+    for (let i = 0; i < passwordSize; i++) {
+      const position = Math.floor(Math.random() * characters.length)
+      newPassword += characters[position]
+    }
+    setPassword(newPassword)
+    setCopyText("Copiar")
   }
 
-  
-
-
-export default function App() {
-//Top level da função
-  //const {count,increment} = useCounter()
-  const [passwordSize, setPasswordSize] = useState(12)
-  const [copia,setCopia] = useState('Copiar')
-
-  const [values , setValues] = useState()
-
-  //Pegando valor do input pelo State
-
-
-  
-  const handleGerarClick = () => {
-    const valueRandom = getRandom();
-    setValues(valueRandom);
-    setCopia('Copiar');
-  };
-
-  const handleCopiarClick = () => {
-    if (values !== undefined) {
-      navigator.clipboard.writeText(values.toString())
-        .then(() => {
-          setCopia('Copiado');
-        })
-        .catch((error) => {
-          console.error('Erro ao copiar para a área de transferência', error);
-        });
-    }
-  };
+  function copyToClipboard() {
+    window.navigator.clipboard.writeText(password)
+    setCopyText("Copiado!")
+  }
 
   return (
-    <>
-   <div>
-    <span>Gerador de senhas</span>
     <div>
-      <label htmlFor="passwordSize">Tamanho: </label>
-
-     <Input passwordSize={passwordSize} setPasswordSize={setPasswordSize}/>
+      <h1>Gerador de senhas</h1>
+      <div>
+        <label htmlFor="showInput">Customizar tamanho:</label>
+        <input
+          type="checkbox"
+          id="showInput"
+          value={showInput}
+          onChange={() => setShowInput(show => !show)}
+        />
+      </div>
+      {showInput && (
+        <div>
+          <label htmlFor="customSize">Tamanho: </label>
+          <Input passwordSize={customSize} setPasswordSize={setCustomSize} />
+        </div>
+      )}
+      <button onClick={generate}>Gerar senha de {passwordSize} caracteres</button>
+      <button onClick={copyToClipboard}>{copyText}</button>
+      <div>Sua senha segura: {password}</div>
     </div>
-    <br />
-    <button onClick={handleGerarClick}>Gerar senha de {passwordSize}</button>
-    <button onClick={handleCopiarClick}>{copia}</button>
-    <br />
-    <span>{values}</span>
-    {/* <button onClick={increment}>{count}</button> */}
-   </div>
-    </>
-  );
+  )
 }
+
+export default App
