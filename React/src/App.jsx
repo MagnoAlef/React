@@ -1,12 +1,13 @@
 //import useCounter from "../hooks/useCounter";
 
-import { useState } from "react";
+
 
 //Regra1 : Onde usar os hooks
   //Sempre chama os hooks dentro de funções reacts
 //Rega2 : A ordem dos hooks   
   // Não usar hooks dentro de condicionais
-
+import Input from './components/Input'
+import { useState } from "react";
   function getRandom() {
     return Math.random();
   }
@@ -17,14 +18,14 @@ import { useState } from "react";
 export default function App() {
 //Top level da função
   //const {count,increment} = useCounter()
-
+  const [passwordSize, setPasswordSize] = useState(12)
   const [copia,setCopia] = useState('Copiar')
 
   const [values , setValues] = useState()
 
   //Pegando valor do input pelo State
 
-  const [passwordSize, setPasswordSize] = useState(12)
+
   
   const handleGerarClick = () => {
     const valueRandom = getRandom();
@@ -50,7 +51,8 @@ export default function App() {
     <span>Gerador de senhas</span>
     <div>
       <label htmlFor="passwordSize">Tamanho: </label>
-      <input type="number" id="passwordSize" min={1} value={passwordSize} onChange={(ev) => setPasswordSize(ev.target.value)} /> {/*  modificar valor do input */}
+
+     <Input passwordSize={passwordSize} setPasswordSize={setPasswordSize}/>
     </div>
     <br />
     <button onClick={handleGerarClick}>Gerar senha de {passwordSize}</button>
