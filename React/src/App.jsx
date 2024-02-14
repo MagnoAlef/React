@@ -39,34 +39,27 @@ const games = [
   },
   {
     "id": 6,
-    "coverImage": "https://cdn.mobygames.com/covers/5346152-starcraft-windows-front-cover.jpg",
-    "title": "Starcraft",
-    "releaseYear": 1998,
-    "description": "A military science fiction game."
-  },
-  {
-    "id": 7,
     "coverImage": "https://i.pinimg.com/originals/a0/d0/9c/a0d09c9cd3eb770f8f83e23744da72fc.jpg",
     "title": "Half-Life",
     "releaseYear": 1998,
     "description": "A first-person shooter game."
   },
   {
-    "id": 8,
+    "id": 7,
     "coverImage": "http://media.ign.com/games/image/object/002/002226/Gran-Turismo-1_PS1_US_BOX.jpg",
     "title": "Gran Turismo",
     "releaseYear": 1998,
     "description": "A driving/racing simulator game."
   },
   {
-    "id": 9,
+    "id": 8,
     "coverImage": "https://cdn.mobygames.com/covers/3966925-halo-combat-evolved-xbox-front-cover.jpg",
     "title": "Halo",
     "releaseYear": 2001,
     "description": "A military science fiction shooter game."
   },
   {
-    "id": 10,
+    "id": 9,
     "coverImage": "http://s.emuparadise.org/fup/up/150757-Kingdom_Hearts_(USA)-1.jpg",
     "title": "Kingdom Hearts",
     "releaseYear": 2002,
