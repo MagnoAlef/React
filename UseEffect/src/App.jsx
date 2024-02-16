@@ -1,41 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-async function fetchPokemon() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-  const data = await response.json();
-  return data.results; // results vem da propria api
+
+function Counter(){
+  const [counter,setCounter] = useState(0)
+
+  useEffect(() => {
+    console.log("O efeito colateral foi ativado")
+   
+    return () => {
+      console.log('Fazendo a limpeza...')
+      console.log('Componente desmontado')
+    } 
+  
+  },[])
+  
+  return (
+    <>
+      <div>
+      <h1>Hello,Word!!!</h1>
+      <button onClick={() => setCounter(counter + 1)}>Contador: {counter}</button>
+      </div>
+    </>
+  )
+  
 }
 
 function App() {
-  const [pokemon , setPokemon] = useState([])
 
- //Vai ser executado somente a primeira vez , por não ter dependência 
-  useEffect(() => {
-    fetchPokemon().then(results => {
-      console.log('Requisição realizada.')
-      console.log(results)
-      setPokemon(results)
-    })
-  } , [])
+const [show, setShow] = useState(false)
+
   return (
     <>
-      <div className="app">
+      <div>
         <div>
-          <h2>Pokemon</h2>
-          <ul className="pokemon">
-            {pokemon.map(mon => (
-              <li key={mon.name}>
-                <span>{mon.name}</span>
-                <button>
-                  Ver detalhes
-                </button>
-              </li>
-            ))}
-          </ul>
+          <label htmlFor="show">Exibir</label>
+          <input type="checkbox" value={show} onChange={() => setShow(!show)} />
         </div>
+        {
+          show ? (  <Counter/>) : ( null)
+        }
+    
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
