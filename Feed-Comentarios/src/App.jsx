@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+import TesteContext from "./components/TesteContext";
+import UserContext from "./context/UserContext";
 
 function App() {
+
+
+const teste = 10
+
   const [email, setEmail] = useState();
   const [comentario, setComentario] = useState();
   const [secaoComentario, setSecaoComentario] = useState([]);
@@ -21,6 +27,8 @@ function App() {
   };
   return (
     <>
+    <UserContext.Provider value={teste}>
+        <TesteContext/> {/**Testando uso do context */}
       <div>
         <h1>Seção de comentarios</h1>
         <form onSubmit={handleSubmit}>
@@ -57,6 +65,7 @@ function App() {
           </div>
         ))}
       </div>
+      </UserContext.Provider>
     </>
   );
 }
