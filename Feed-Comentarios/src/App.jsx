@@ -6,7 +6,7 @@ import UserContext from "./context/UserContext";
 function App() {
 
 
-const teste = 10
+const teste = 10 //variavel para teste de de contexto
 
   const [email, setEmail] = useState();
   const [comentario, setComentario] = useState();
@@ -27,7 +27,7 @@ const teste = 10
   };
   return (
     <>
-    <UserContext.Provider value={teste}>
+    <UserContext.Provider value={teste}> 
         <TesteContext/> {/**Testando uso do context */}
       <div>
         <h1>Seção de comentarios</h1>
@@ -44,7 +44,7 @@ const teste = 10
           <p></p>
           <label htmlFor="comentario">Comentario</label>
           <br />
-          <input // textarea 
+          <input // textarea  componente para substituir input 
             type="text"
             name="comentario"
             id="comentario"
