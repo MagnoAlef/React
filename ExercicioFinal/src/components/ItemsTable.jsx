@@ -16,7 +16,7 @@ export default function ItemsTable() {
         </tr>
       </thead>
       <tbody>
-        {items.map((item) => (
+        {items?.map((item) => (
           <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.name}</td>
