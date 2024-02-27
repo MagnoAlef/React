@@ -17,7 +17,7 @@ export default function ItemForm({ itemToUpdate }) {
   }
 
   const [item, setItem] = useState(itemToUpdate ? itemToUpdate : defaultItem)
-  const { addItem, updateItem } = useStock()
+  const {  updateItem , addItem  } = useStock()
   const inputRef = useRef(null)
 
   const handleChange = (ev) => {
